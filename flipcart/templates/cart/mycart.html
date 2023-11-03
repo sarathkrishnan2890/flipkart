@@ -1,0 +1,96 @@
+{% extends 'home.html' %}
+{% block content%}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/mycart.css'%}">
+</head>
+<body>
+
+<div class="container-fluid">
+    {% if cart_items %}
+    <h2>My cart</h2>
+</div>
+<div class="li">
+    <ul class="list-group">
+        {% for cart_item in cart_items %}
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4 d-flex justify-content-center align-items-center">
+                    <div class="img"><img alt="{{ cart_item.book.title}}" class="card-img" src="{{ cart_item.book.image_url}}" style="width:120px;" class="img-fluid"></div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><h5>{{ cart_item.book.title}}</h5></h5>
+                        <p class="card-text">price : {{cart_item.book.price}}</p>
+                        <p class="card-text">quantity : {{ cart_item.quantity}}</p>
+                        <p class="card-text">total : {{ cart_item.total_price}}</p>
+                        <a class="btn btn-danger"
+                           href="{% url 'remove_from_cart' product_id=cart_item.book.id %}"
+                           onclick="alert('Item removed from the cart')">Remove From Cart</a>
+                        <a class="btn btn-outline-primary" href="" onclick="alert('payment successfull')">buy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <a class="btn btn-outline-primary" href="" onclick="alert('payment successfull')">buy</a>
+        {% else %}
+        <p>your cart is empty</p>
+        <a href="{% url 'products' %}">continue shopping</a>
+    </ul>
+    {% endif %}
+</div>
+</body>
+</html>
+{% endblock content%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="list-group">
+    {% if cart_items%}
+    <h2>My cart</h2>
+
+</div>
+<ul class="list-group">
+    {% for cart_item in cart_items %}
+    <div class="col-sm">
+        <img alt="{{cart_item.book.Book_name}}" class="card-img" src="{{cart_item.book.image_url}}">
+
+    </div>
+    <div class="col-sm-10">
+        <h5> {{cart_item.book.Book_name}}
+            <h5>
+
+                <p>Price: {{cart_item.book.price}} per book</p>
+                <p>Quantity :{{cart_item.quantity}}</p>
+                <p>Total:{{cart_item.Total_price}}</p>
+
+    </div>
+    <a class="btn btn-outline-danger" href="{% url 'remove_from_cart' book_id=cart_item.book.id %}"
+       onclick="alert('Item removed from the cart')">Remove From Cart</a>
+
+
+    <div>
+        {% endfor%}
+        <a class="btn btn-outline-primary" href="" onclick="alert('payment successfull')">Buy</a>
+        {% else %}
+        <p>Your cart is empty</p>
+        <a href="{%url 'books' %}">continue shopping</a>
+    </div>
+
+    {%endif%}
+
+</ul>
+<p></p>
+
+</body>
+</html>

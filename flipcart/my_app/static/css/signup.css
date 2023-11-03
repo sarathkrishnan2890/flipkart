@@ -1,0 +1,32 @@
+.container{
+background-color:white;
+border-radius: 20px;
+width:800px;
+border: 3px solid rgb(47, 105, 230);
+border: 5px solid rgb(233, 78, 39);
+}
+.signup{
+padding-top: 30px;
+text-align: center;
+}
+.post{
+align-items:start;
+font-size: 13px;
+}
+.button{
+border-radius: 5px;
+display: flex;
+justify-content: center;
+padding-top: 30px;
+padding-bottom: 30px;
+}
+.login{
+align-items:center;
+text-align: center;
+}
+
+.demos{
+border-color: red 3px;
+
+border: 3px solid rgb(250, 120, 44);
+}

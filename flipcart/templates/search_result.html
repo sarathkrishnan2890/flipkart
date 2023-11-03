@@ -1,0 +1,38 @@
+{% extends 'home.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{% static 'search_result.css' %}"> <!-- Include your custom CSS file for styling -->
+</head>
+<body>
+    <h1 class="page-title">Search Results</h1>
+    <hr>
+
+    <div class="results-container">
+        {% for every in object_list %}
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <a href="{% url 'details' every.pk %}">
+                        <img src="{{ every.image_url }}" class="img-fluid rounded-start" alt="Image">
+                    </a>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="{% url 'details' every.pk %}">{{ every.title }}</a></h5>
+                        <p class="card-text">Price: ${{ every.price }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="no-results-message">Nothing found</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
+{% endblock content %}

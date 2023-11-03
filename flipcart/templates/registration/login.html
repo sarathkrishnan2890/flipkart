@@ -1,0 +1,40 @@
+{% extends 'home.html' %}
+{% block content%}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/login.css'%}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <style>
+    /* Add this style to adjust input width */
+    form input[type="text"],
+    form input[type="password"] {
+        width: 358px; /* Set the desired width */
+        box-sizing: border-box; /* Include padding and border in the width */
+    }
+</style>
+</head>
+<body>
+<div class="container" style="max-width: 700px; padding-bottom:90px; padding-top:70px;">
+    <div class="post" style="padding-left:20px; padding-bottom:20px;">
+        <h3 class="headline" style=" padding-top:20px;">Login</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="button-group">
+                <button type="submit">Login</button>
+                <a class="btn btn-primary" href="{% url 'signup' %}" role="button">Create a new account</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+</body>
+</html>
+{% endblock content%}

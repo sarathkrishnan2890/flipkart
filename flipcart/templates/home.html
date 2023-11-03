@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body>
+<div class="total">
+    <nav class="navbar navbar-expand-lg" style=" background-color:rgb(53, 91, 241);">
+        <div class="container-fluid d-flex justify-content-center align-items-center">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'list' %}" style="color: white;"><i class="fas fa-home"></i>
+                            <b>Home</b></a>
+                    </li>
+
+
+                    <li>
+                        <div class="user" style=" background-color:rgb(53, 91, 241);">
+                            <i class="fas fa-user" style="color: white; background-color:rgb(53, 91, 241);"></i>
+                            <select onchange="window.location.href=this.value;"
+                                    style="padding-top:6px; border: 2px solid rgb(53, 91, 241);   color: white; background-color:rgb(53, 91, 241); font-weight: bold;">
+                                {% if user.is_authenticated %}
+                                <option value="" selected disabled>{{ user }}</option>
+                                <option value="{% url 'logout' %}">Logout</option>
+                                {% else %}
+                                <option value="" selected disabled>{{ user }}</option>
+                                <option value="{% url 'signup' %}">SignUp</option>
+                                <option value="{% url 'login' %}">Login</option>
+                                {% endif %}
+                            </select>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'mycart' %} " style="color: white;">
+                            <i class="fas fa-shopping-cart"></i> <b>Cart</b></a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search" action="{% url 'search' %}" method="get">
+                    <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline" style="color: white; border: 2px solid white; " type="submit">Search
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="flip">
+    <img src="{% static 'images/fli.png' %}" class="img-fluid" alt="...">
+</div>
+<br>
+
+{% block content %}
+
+
+
+{% endblock content%}
+
+<footer>
+    <div class="footer-container" style="color: black; background-color:orange;">
+        <div class="footer-section" style="font-size:12px;">
+            <h3>Contact Us</h3>
+            <p>Email:flipkart2023@.com</p>
+            <p>Phone:9100 425 562</p>
+            <p>Address: Malappuram, Kerala, India</p>
+        </div>
+
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Signup</a></li>
+                <li><a href="#">Cart</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Customer Service</h4>
+            <ul>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Returns</a></li>
+                <li><a href="#">FAQs</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <ul class="social-icons">
+                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+
+            </ul>
+        </div>
+
+
+
+    </div>
+
+    <div class="footer-bottom">
+        <div class="copyright">&copy; 2023 Your flipkart Store. All Rights Reserved.</div>
+    </div>
+</footer>
+
+</body>
+</html>
+
+
+</body>
+</html>

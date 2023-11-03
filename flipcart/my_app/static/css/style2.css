@@ -1,0 +1,40 @@
+.details{
+display: flex;
+justify-content: center;
+height:100%;
+padding-top:50px;
+padding-bottom:50px;
+
+}
+
+.bigtitle{
+font-size: 23px;
+color: rgb(47, 47, 237);
+}
+.bigprice{
+color:green;
+}
+.bigdescription{
+font-size: 19px;
+}
+.addtocart {
+display: flex;
+gap:15px;
+margin-top: 20px; /* Optional margin for spacing from the description */
+}
+.buynow{
+margin-left: 5px;
+}
+.add {
+margin-right: 120px;
+}
+.outofstock {
+display:inline-flex;
+gap: 20px;
+}
+.outof{
+margin-left: 5px;
+}
+.adding {
+margin-right: 120px;
+}

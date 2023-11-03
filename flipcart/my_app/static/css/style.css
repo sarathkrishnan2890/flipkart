@@ -1,0 +1,110 @@
+.products{
+ background-color: aliceblue;
+}
+.body{
+ background-color: aliceblue;
+}
+
+.images{
+padding-top:35px;
+padding-bottom:15px;
+display: flex;
+justify-content: center;
+align-items:center;
+transition: transform 0.3s;
+}
+.card-img-top:hover {
+    transform: scale(1.5);
+}
+.card-custom {
+height: 60vh;
+}
+.title{
+text-align: center;
+color:blue;
+font-size: 15px;
+}
+.card-title{
+font-size: 14px;
+}
+
+.description{
+font-size: 12px;
+color: dimgrey;
+}
+
+.price{
+text-align: center;
+color: green;
+font-size: 20px;
+}
+
+.available{
+font-size: 50px;
+text-align: center;
+}
+
+.adv{
+margin-right: 25px;
+margin-left: 25px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #f8f8f8;
+  padding: 10px;
+  text-align: center; /* Center text within the nav */
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap:30px;
+  display: flex; /* Use flexbox to center items */
+  justify-content: center; /* Center items horizontally */
+}
+
+.category-item {
+  margin: 0 10px; /* Add some spacing between categories */
+  text-align: center; /* Center text */
+}
+
+.category-item img {
+  vertical-align: middle; /* Align the image vertically in the same line */
+  display: block; /* Display the image as a block to allow text below */
+  margin: 0 auto 10px; /* Center image and add spacing below */
+}
+
+.category-item .category-name {
+  display: block; /* Display the category name below the image */
+}
+
+.category-item:hover .subcategories {
+  display: block;
+}
+
+.subcategories {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  left: 0;
+  top: 100%;
+  min-width: 200px;
+}
+
+.subcategories li {
+  padding: 8px 0;
+}
+
+.subcategories li:hover {
+  background-color: #f0f0f0;
+}
+

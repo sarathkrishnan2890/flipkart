@@ -1,0 +1,15 @@
+.details{
+display: flex;
+justify-content: center;
+}
+.bigtitle{
+color:blue;
+font-size:14px;
+}
+.bigdescription{
+
+}
+
+.bigprice{
+color:green;
+}
